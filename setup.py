@@ -26,7 +26,7 @@ with open('README.rst', 'r') as f:
 if __name__ == '__main__':
     setup(
         name='sdypy_sep005',
-        description='Checks compability with the SDyPy SEP005 guidelines',
+        description='Checks compatibility with the SDyPy SEP005 guidelines using Pydantic validation',
         long_description=readme,
         license='MIT license',
         url='https://github.com/sdypy',
@@ -35,9 +35,35 @@ if __name__ == '__main__':
         author_email='wout.weijtjens@vub.be',
         maintainer='Wout Weijtjens',
         maintainer_email='wout.weijtjens@vub.be',
-        keywords=['io', 'tdms', 'SEP5'],
+        keywords=['io', 'tdms', 'SEP5', 'validation', 'pydantic'],
         packages=['sdypy_sep005'],
-        classifiers=['Development Status :: 3 - Alpha',
-                     'Intended Audience :: Developers',
-                     'Programming Language :: Python :: 3.6']
+        install_requires=[
+            'numpy>=1.11.0',
+            'pydantic>=2.0.0',
+        ],
+        extras_require={
+            'dev': [
+                'pytest',
+                'hypothesis',
+                'sphinx',
+                'sphinx-rtd-theme',
+                'twine',
+                'wheel',
+            ],
+        },
+        python_requires='>=3.7',
+        classifiers=[
+            'Development Status :: 4 - Beta',
+            'Intended Audience :: Developers',
+            'License :: OSI Approved :: MIT License',
+            'Programming Language :: Python :: 3',
+            'Programming Language :: Python :: 3.7',
+            'Programming Language :: Python :: 3.8',
+            'Programming Language :: Python :: 3.9',
+            'Programming Language :: Python :: 3.10',
+            'Programming Language :: Python :: 3.11',
+            'Programming Language :: Python :: 3.12',
+            'Topic :: Software Development :: Quality Assurance',
+            'Topic :: Software Development :: Testing',
+        ]
     )
