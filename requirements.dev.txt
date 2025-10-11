@@ -4,4 +4,5 @@ sphinx
 twine
 wheel
 pytest
+hypothesis
 sphinx-rtd-theme
