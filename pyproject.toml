@@ -20,17 +20,19 @@ classifiers=["Development Status :: 4 - Beta",
              "Programming Language :: Python :: 3.11",
              "Programming Language :: Python :: 3.12",
              "Programming Language :: Python :: 3.13",
-             "Programming Language :: Python :: 3.14"
+             "Programming Language :: Python :: 3.14",
+             "Programming Language :: Python :: 3.15"
              ]
 authors = [{ name = "Wout Weijtjens", email = "wout.weijtjens@24sea.eu" }]
 maintainers = [{ name = "Pietro Dantuono", email = "pietro.dantuono@24sea.eu" },
                { name = "Wout Weijtjens", email = "wout.weijtjens@24sea.eu" },
                { name = "Panagiotis Konis", email = "panagiotis.konis@24sea.eu" }]
 # -- Project dependencies.
-requires-python = ">=3.9.0,<3.15"
+requires-python = ">=3.9.0,<3.16"
 dependencies = [
     "numpy",
-    "pydantic"
+    "pydantic; python_version < '3.15'",
+    "pydantic>=2.14,<3; python_version >= '3.15'"
 ]
 
 # -- Project package.
@@ -96,6 +98,10 @@ dependencies =[
 [[tool.hatch.envs.hatch-test.matrix]]
 python = ["3.14", "3.13", "3.12", "3.11", "3.10", "3.9"]
 pydantic = ["1.*", "2.*"]
+
+[[tool.hatch.envs.hatch-test.matrix]]
+python = ["3.15"]
+pydantic = ["2.*"]
 
 [tool.hatch.envs.hatch-test.overrides.matrix.pydantic]
 dependencies = ["pydantic=={matrix:pydantic}"]
